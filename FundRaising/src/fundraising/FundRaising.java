@@ -42,6 +42,11 @@ public class FundRaising {
         pop=Integer.parseInt(JOptionPane.showInputDialog("What is the school population?"));
         schools[school][amount]=pop*amountConvert(amount);
         
+        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "","CathCen","Holy C","JP II","MotherT","ReginaM","St.Joe","St.Mary","St.Thom","Total");        
+        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$0.25",schools[0][0],schools[1][0],schools[2][0],schools[3][0],schools[4][0],schools[5][0],schools[6][0],schools[7][0],schools[0][0]+schools[1][0]+schools[2][0]+schools[3][0]+schools[4][0]+schools[5][0]+schools[6][0]+schools[7][0]);
+        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$0.50",schools[0][1],schools[1][1],schools[2][1],schools[3][1],schools[4][1],schools[5][1],schools[6][1],schools[7][1],schools[0][1]+schools[1][1]+schools[2][1]+schools[3][1]+schools[4][1]+schools[5][1]+schools[6][1]+schools[7][1]);
+        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$1.00");
+        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n",);
         
         
         
