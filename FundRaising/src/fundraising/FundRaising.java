@@ -2,6 +2,8 @@
 
 package fundraising;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 /**
  * @title FundRaising
@@ -14,10 +16,10 @@ public class FundRaising {
 
     public static void main(String[] args) {
         double central[]=new double[4],cross[]=new double[4],paul[]=new double[4],teresa[]=new double[4],mundi[]=new double[4],joseph[]=new double[4],mary[]=new double[4],thomas[]=new double[4];
-        int school = 0,test,amount = 0,pop;
+        int school = 0,test,amount = 0,pop,retry;
         double schools[][]={central,cross,paul,teresa,mundi,joseph,mary,thomas};//split declaration to make coding easier and more debugablem easier to see which school is which.
         
-        
+        do {
                 do {
             test=0;
         
@@ -49,9 +51,14 @@ public class FundRaising {
         System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$0.50",schools[0][1],schools[1][1],schools[2][1],schools[3][1],schools[4][1],schools[5][1],schools[6][1],schools[7][1],schools[0][1]+schools[1][1]+schools[2][1]+schools[3][1]+schools[4][1]+schools[5][1]+schools[6][1]+schools[7][1]);
         System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$1.00",schools[0][2],schools[1][2],schools[2][2],schools[3][2],schools[4][2],schools[5][2],schools[6][2],schools[7][2],schools[0][2]+schools[1][2]+schools[2][2]+schools[3][2]+schools[4][2]+schools[5][2]+schools[6][2]+schools[7][2]);
         System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$2.00",schools[0][3],schools[1][3],schools[2][3],schools[3][3],schools[4][3],schools[5][3],schools[6][3],schools[7][3],schools[0][3]+schools[1][3]+schools[2][3]+schools[3][3]+schools[4][3]+schools[5][3]+schools[6][3]+schools[7][3]);
-        System.out.println(total(schools));
-        
-        
+        System.out.println("Total: $"+total(schools));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FundRaising.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        retry=Integer.parseInt(JOptionPane.showInputDialog("Input 1 to add information for another school, a different fundraising compaing for a school, or to make a correction to an existing fundraiser(there can only be 4 different fundraisers, one of each)"));
+    }while(retry==1);
     }
     public static double amountConvert(int amount) {
         double value = 0;
