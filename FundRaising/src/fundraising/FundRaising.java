@@ -1,6 +1,7 @@
 
 
 package fundraising;
+import java.util.Arrays;
 import javax.swing.*;
 /**
  * @title FundRaising
@@ -15,7 +16,9 @@ public class FundRaising {
         double central[]=new double[4],cross[]=new double[4],paul[]=new double[4],teresa[]=new double[4],mundi[]=new double[4],joseph[]=new double[4],mary[]=new double[4],thomas[]=new double[4];
         int school = 0,test,amount = 0,pop;
         double schools[][]={central,cross,paul,teresa,mundi,joseph,mary,thomas};//split declaration to make coding easier and more debugablem easier to see which school is which.
-        do {
+        
+        
+                do {
             test=0;
         
             try {
@@ -41,13 +44,12 @@ public class FundRaising {
         }  while (test==1);
         pop=Integer.parseInt(JOptionPane.showInputDialog("What is the school population?"));
         schools[school][amount]=pop*amountConvert(amount);
-        
         System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "","CathCen","Holy C","JP II","MotherT","ReginaM","St.Joe","St.Mary","St.Thom","Total");        
         System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$0.25",schools[0][0],schools[1][0],schools[2][0],schools[3][0],schools[4][0],schools[5][0],schools[6][0],schools[7][0],schools[0][0]+schools[1][0]+schools[2][0]+schools[3][0]+schools[4][0]+schools[5][0]+schools[6][0]+schools[7][0]);
         System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$0.50",schools[0][1],schools[1][1],schools[2][1],schools[3][1],schools[4][1],schools[5][1],schools[6][1],schools[7][1],schools[0][1]+schools[1][1]+schools[2][1]+schools[3][1]+schools[4][1]+schools[5][1]+schools[6][1]+schools[7][1]);
-        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$1.00");
-        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n",);
-        
+        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$1.00",schools[0][2],schools[1][2],schools[2][2],schools[3][2],schools[4][2],schools[5][2],schools[6][2],schools[7][2],schools[0][2]+schools[1][2]+schools[2][2]+schools[3][2]+schools[4][2]+schools[5][2]+schools[6][2]+schools[7][2]);
+        System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%n", "$2.00",schools[0][3],schools[1][3],schools[2][3],schools[3][3],schools[4][3],schools[5][3],schools[6][3],schools[7][3],schools[0][3]+schools[1][3]+schools[2][3]+schools[3][3]+schools[4][3]+schools[5][3]+schools[6][3]+schools[7][3]);
+        System.out.println(total(schools));
         
         
     }
@@ -72,5 +74,19 @@ public class FundRaising {
         
       
         
+    }
+
+    private static double total(double schools[][]) {
+        double total = 0;
+        for (double[] school : schools) {
+            for (double amount : school) {
+                total=total+amount;
+            }
+        }
+        
+        
+        
+        
+        return total;
     }
 }
